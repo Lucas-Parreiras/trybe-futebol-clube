@@ -19,16 +19,15 @@ class UsersController {
   }
 
   async userRole(req: Request, res: Response) {
-    const { authorization } = req.headers;
-    if (!authorization) {
-      return res.status(401).json({ message: 'Token not found' });
-    }
-    const role = await this.usersService.findUserRole(authorization);
-    if (role.status === 'UNAUTHORIZED') {
-      return res.status(401).json({ message: 'Token must be a valid token' });
+    const token = req.get('authorization') as string;
+
+    const serviceResponse = await this.usersService.findUserRole(token);
+
+    if (serviceResponse.status !== 'SUCESSFUL') {
+      return res.status(401).json(serviceResponse.data);
     }
 
-    return res.status(200).json({ role });
+    return res.status(200).json({ role: serviceResponse.data });
   }
 }
 
