@@ -18,3 +18,28 @@ export type MatchesForTeam = ITeams & {
   homeMatches: IMatches[];
   awayMatches: IMatches[];
 };
+
+export type Info = {
+  totalPoints: number;
+  totalGames: number;
+  totalVictories: number;
+  totalDraws: number;
+  totalLosses: number;
+  goalsFavor: number;
+  goalsOwn: number;
+  goalsBalance: number;
+  efficiency: string;
+};
+
+export type InfoWithName = {
+  name: string;
+  totalPoints: number;
+  totalGames: number;
+  totalVictories: number;
+  totalDraws: number;
+  totalLosses: number;
+  goalsFavor: number;
+  goalsOwn: number;
+  goalsBalance: number;
+  efficiency: string;
+};
