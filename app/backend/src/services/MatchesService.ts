@@ -1,6 +1,6 @@
 import MatchesModel from '../models/MatchesModel';
 import { IMatchesModel } from '../Interfaces/Matches/IMatchesModel';
-import { MatchesNamesIncluded } from '../Interfaces/Matches/IMatches';
+import { IMatches, MatchesNamesIncluded, resultBody } from '../Interfaces/Matches/IMatches';
 import { ServResponse } from '../Interfaces/ServiceResponse';
 
 class MatchesService {
@@ -32,6 +32,22 @@ class MatchesService {
     }
 
     return { status: 'SUCESSFUL', data: 'Finished' };
+  }
+
+  async updateInProgressMatch(id: number, result: resultBody): Promise<ServResponse<string>> {
+    const isUpdated = await this.matchesModel.updateResultMatch(id, result);
+
+    return { status: 'SUCESSFUL', data: isUpdated };
+  }
+
+  async createNewMatchS(data: Partial<IMatches>): Promise<ServResponse<IMatches>> {
+    const createdMatch = await this.matchesModel.createNewMatch(data);
+
+    if (createdMatch === null) {
+      return { status: 'NOT_FOUND', data: { message: 'There is no team with such id!' } };
+    }
+
+    return { status: 'SUCESSFUL', data: createdMatch };
   }
 }
 

@@ -15,3 +15,8 @@ export type MatchesNamesIncluded = IMatches & {
   homeTeam: IncludeNames;
   awayTeam: IncludeNames;
 };
+
+export type resultBody = {
+  homeTeamGoals: number;
+  awayTeamGoals: number;
+};
