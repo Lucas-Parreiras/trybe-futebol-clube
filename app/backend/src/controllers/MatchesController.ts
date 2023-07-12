@@ -36,10 +36,16 @@ class MatchesController {
   }
 
   async updateResultMatch(req: Request, res: Response) {
-    const { id } = req.params;
-    const { result } = req.body;
+    const id = Number(req.params.id);
+    const homeTeamGoals = Number(req.body.homeTeamGoals);
+    const awayTeamGoals = Number(req.body.awayTeamGoals);
 
-    const serviceResponse = await this.matchesService.updateInProgressMatch(Number(id), result);
+    const resultFinal = {
+      homeTeamGoals,
+      awayTeamGoals,
+    };
+
+    const serviceResponse = await this.matchesService.updateInProgressMatch(id, resultFinal);
 
     return res.status(200).json(serviceResponse.data);
   }
