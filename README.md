@@ -1,10 +1,9 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Trybe Futebol Clube
+
+Esse projeto foi proposto na seção final do módulo de back-end da minha formação na Trybe.
+A parte do front-end foi desenvolvida pelo time da Trybe, eu fui responsável pela criação do back-end, construção do CRUD, utilizando arquitetura MSC, os middlewares, configuração do docker e alguns tests.
+
+Tecnologias utilizadas:
+- TypeScript;
+- Sequelize;
+- JsonWebToken;
